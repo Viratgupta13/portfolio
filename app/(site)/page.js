@@ -52,21 +52,36 @@ export default function Home() {
 
       <section className="about" id="about">
         <div className="wrap">
-          <div className="section__head reveal"><p className="eyebrow">About</p><h2>Hi there!</h2></div>
+          <p className="eyebrow about__label reveal">About / 01</p>
+          <h2 className="about__title reveal">
+            Oh, there&apos;s a <em>person</em> here.
+          </h2>
+
           <div className="about__grid">
-            <div className="portrait reveal">
-              <div className="portrait__card" data-flipped="0">
-                <div className="portrait__face portrait__face--front"><div className="portrait__mono">VG</div></div>
-                <div className="portrait__face portrait__face--back"><p className="portrait__caption">probably debugging</p></div>
+            <div className="vg reveal">
+              <div className="vg__block">
+                <span className="vg__mark">VG<i>.</i></span>
+                <span className="vg__cap">The human behind the code</span>
               </div>
+              <span className="vg__star" aria-hidden="true">*</span>
             </div>
-            <div>
-              <p className="about__lede reveal">I build things end to end, React Native apps, Next.js sites, Node backends, and the occasional model that has to survive contact with real photos :)</p>
-              <div className="about__notes reveal">
-                <p>Final year B.Tech in Information Technology at SRMS CET Bareilly, building things on the side because one courseload was never going to be enough</p>
-                <p>Right now I'm a full-stack developer at HomlyHouse, working on a marketplace with Stripe billing and an escrow payment flow</p>
-                <p>I like finding out why something broke. My favourite bug so far: a BGR/RGB mix-up that quietly dropped a classifier's live accuracy from 88% to 69%</p>
-              </div>
+
+            <div className="about__copy">
+              <p className="about__meta reveal">Full-stack developer · Serial idea collector</p>
+              <p className="about__lede reveal">{"I'm Virat. I build web and mobile products, obsess over tiny details, and occasionally turn a straightforward task into an unnecessarily elaborate side quest."}</p>
+              <p className="about__body reveal">{"I like the entire process of making things — from the first ‘what if?’ to the part where everything finally works. Somewhere between writing code, fixing bugs, and questioning my own decisions, I'm figuring out what makes software genuinely useful."}</p>
+            </div>
+          </div>
+
+          <div className="about__off">
+            <h3 className="reveal">Outside the terminal?</h3>
+            <div className="about__offcopy">
+              <p className="reveal">{"Music on repeat. Too many tabs open. Ideas that probably deserve their own Notion page. And a strong belief that not every thought needs to become a startup. (Still working on that last one.)"}</p>
+              <ul className="atags reveal" aria-label="A few labels">
+                <li className="atag">Music enthusiast</li>
+                <li className="atag atag--on">Professional overthinker</li>
+                <li className="atag">Serial idea collector</li>
+              </ul>
             </div>
           </div>
         </div>
@@ -74,7 +89,7 @@ export default function Home() {
 
       <section className="skills" id="skills">
         <div className="wrap">
-          <div className="section__head reveal"><p className="eyebrow">Toolbox</p><h2>What I build with</h2></div>
+          <div className="section__head reveal"><p className="eyebrow">Toolbox / 02</p><h2>What I build with</h2></div>
           <div className="skills__grid">
             {skills.map((g) => (
               <div className="skillgroup" key={g.group}>
@@ -95,7 +110,7 @@ export default function Home() {
       <section id="experience">
         <div className="wrap xp__grid">
           <aside className="xp__index">
-            <div className="section__head reveal"><p className="eyebrow">Experience</p><h2>Where I've been</h2></div>
+            <div className="section__head reveal"><p className="eyebrow">Experience / 03</p><h2>Where I've been</h2></div>
             <ol className="xp__list" aria-label="Roles">
               {jobs.map((j, i) => (
                 <li key={j.id}>

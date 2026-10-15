@@ -189,20 +189,24 @@ export default function Motion() {
     observers.push(io2);
     $$('.skillgroup').forEach((el) => io2.observe(el));
 
-    /* about: flip the portrait */
-    const portrait = $('.portrait');
-    if (portrait) portrait.addEventListener('click', () => {
-      const c = $('.portrait__card'); c.dataset.flipped = c.dataset.flipped === '1' ? '0' : '1';
-    }, sig);
-
     /* experience: scroll-spy + mobile accordion */
-    const items = $$('[data-xp-item]'), jobs = $$('[data-job]');
+    const items = $$('[data-xp-item]'), jobs = $$('[data-job]'), list = $('.xp__list');
+    let lastBest = -1;
     if (items.length) {
       items.forEach((it, i) => it.addEventListener('click', (e) => { e.preventDefault(); goTo(jobs[i], -(64 + 24)); }, sig));
       const spy = () => {
         const mid = innerHeight * 0.42; let best = 0, bd = 1e9;
         jobs.forEach((j, i) => { const r = j.getBoundingClientRect(), d = Math.abs(r.top + Math.min(r.height, 220) / 2 - mid); if (d < bd) { bd = d; best = i; } });
         items.forEach((it, i) => { it.dataset.on = i === best ? '1' : '0'; });
+        jobs.forEach((j, i) => { if (i === best) j.dataset.active = '1'; else delete j.dataset.active; });
+        if (best !== lastBest) {
+          lastBest = best;
+          /* on small screens the timeline is a horizontal rail: keep the selected role in view */
+          if (list && list.scrollWidth > list.clientWidth + 2) {
+            const it = items[best];
+            list.scrollTo({ left: it.offsetLeft - (list.clientWidth - it.offsetWidth) / 2, behavior: reduce ? 'auto' : 'smooth' });
+          }
+        }
       };
       addEventListener('scroll', spy, { passive: true, signal: ac.signal }); spy();
     }
