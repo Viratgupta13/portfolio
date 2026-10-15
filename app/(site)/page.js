@@ -1,6 +1,59 @@
 import Words from '@/components/Words';
 import HeroScatter from '@/components/HeroScatter';
-import { site, skills, jobs, cases, creds } from '@/lib/data';
+import { site, skills, jobs, creds } from '@/lib/data';
+
+/* Selected work: real screenshots / recordings from /public/assets only. One place to rename a project. */
+const WORK = [
+  {
+    slug: 'ledgerly', n: '01', name: 'Ledgerly', kind: 'Personal finance app',
+    blurb: "Turns your bank and UPI texts into a spending log you only have to review once. For people whose budgeting plan used to be 'vibes'.",
+    tags: ['React Native', 'Expo', 'TypeScript', 'Supabase'],
+    links: [['Live site', 'https://ledgerly-virat12.vercel.app/'], ['GitHub', 'https://github.com/Viratgupta13/ledgerly']],
+  },
+  {
+    slug: 'saabi', n: '02', name: 'SAABI', kind: 'AI breed identification',
+    blurb: 'Upload a photo of cattle or a buffalo and it names the breed. Photos that are neither get flagged instead of guessed at.',
+    tags: ['Python', 'Computer vision', 'MobileNetV2'],
+    links: [['Live demo', 'https://saabi-qhel.onrender.com/'], ['GitHub', 'https://github.com/Viratgupta13/saabi-cattle-breed-classifier']],
+  },
+  {
+    slug: 'herbal-garden', n: '03', name: 'Herbify', kind: 'Virtual herbal garden',
+    blurb: 'Browse Ayurvedic herbs, keep a garden of the ones you grow, then quiz yourself. A garden where nothing dies of neglect.',
+    tags: ['React Native', 'Expo'],
+    links: [['Live demo', 'https://viratgupta13.github.io/herbal-garden/'], ['GitHub', 'https://github.com/Viratgupta13/herbal-garden']],
+  },
+];
+
+
+const MEDIA = {
+  'ledgerly': (
+              <a className="wk__media wk__media--yellow" href="/work/ledgerly" aria-label="Read the Ledgerly write-up">
+                  <span className="wk__shots wk__shots--row">
+                    <img className="ph ph--a" src="/assets/ledgerly-02-home.jpg" alt="Ledgerly home screen" loading="lazy" />
+                    <img className="ph ph--b" src="/assets/ledgerly-04-inbox-scanned.jpg" alt="Ledgerly inbox after an SMS scan" loading="lazy" />
+                    <img className="ph ph--c" src="/assets/ledgerly-06-review-confirm.jpg" alt="Ledgerly review and confirm screen" loading="lazy" />
+                  </span>
+                </a>
+  ),
+  'saabi': (
+              <a className="wk__media wk__media--video" href="/work/saabi" aria-label="Read the SAABI write-up">
+                  <video className="wk__video" src="/assets/saabi-demo.mp4" autoPlay muted loop playsInline preload="metadata" aria-label="SAABI demo: upload a photo, get a breed" />
+                  <span className="wk__inset">
+                    <img src="/assets/saabi-confusion.jpg" alt="SAABI confusion matrix on the held-out test set" loading="lazy" />
+                    <i>Confusion matrix</i>
+                  </span>
+                </a>
+  ),
+  'herbal-garden': (
+              <a className="wk__media wk__media--tint" href="/work/herbal-garden" aria-label="Read the Herbify write-up">
+                  <span className="wk__shots wk__shots--fan">
+                    <img className="ph ph--l" src="/assets/herbify-1-welcome.jpg" alt="Herbify welcome screen" loading="lazy" />
+                    <img className="ph ph--m" src="/assets/herbify-2-home.jpg" alt="Herbify home screen" loading="lazy" />
+                    <img className="ph ph--r" src="/assets/herbify-4-quiz.jpg" alt="Herbify quiz" loading="lazy" />
+                  </span>
+                </a>
+  ),
+};
 
 const Arrow = () => (
   <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 8h10M9 4l4 4-4 4" /></svg>
@@ -148,27 +201,25 @@ export default function Home() {
 
       <section className="work" id="work">
         <div className="wrap">
-          <div className="section__head reveal">
-            <p className="eyebrow">Selected work</p>
-            <h2>Four things worth opening</h2>
-            <p>Each of these has a full write-up: highlights, stack, screenshots and links.</p>
+          <div className="work__head reveal">
+            <p className="eyebrow about__label">02 / Selected work</p>
+            <h2 className="work__title">Things I&apos;ve made. Things I&apos;ve <em>broken.</em></h2>
+            <p className="work__sub">A collection of ideas that escaped my notes app and became actual products.</p>
           </div>
-          <div className="cases">
-            {cases.map((c) => (
-              <article className="case reveal" key={c.slug}>
-                <a className={`case__shot${c.shots.length > 1 ? ' multi' : ''}`} data-case-shot="true" tabIndex={-1} aria-hidden="true" href={`/work/${c.slug}`}>
-                  {c.video
-                    ? <video src={c.video} autoPlay muted loop playsInline preload="metadata" />
-                    : c.shots.map((s) => <img key={s} src={s} alt="" loading="lazy" />)}
-                </a>
-                <div className="case__body">
-                  <p className="case__no">{c.no} / {c.kind}</p>
-                  <h3>{c.title}</h3>
-                  <p className="case__tag">{c.tag}</p>
-                  <p className="case__lede">{c.lede}</p>
-                  {c.award && <p className="case__award">{c.award}</p>}
-                  <div className="s-chips">{c.chips.map((x) => <span className="s-chip" key={x}>{x}</span>)}</div>
-                  <a className="case__go" href={`/work/${c.slug}`}>Read the write-up <span aria-hidden="true">→</span></a>
+
+          <div className="wk-list">
+            {WORK.map((w) => (
+              <article className={`wk wk--${w.n.slice(1)} reveal`} key={w.slug}>
+                {MEDIA[w.slug]}
+                <div className="wk__body">
+                  <p className="wk__kind"><span>{w.n}</span> {w.kind}</p>
+                  <h3 className="wk__name"><a href={`/work/${w.slug}`}>{w.name}<span className="wk__arrow" aria-hidden="true">↗</span></a></h3>
+                  <p className="wk__blurb">{w.blurb}</p>
+                  <ul className="wk__tags" aria-label="Built with">{w.tags.map((t) => <li key={t}>{t}</li>)}</ul>
+                  <div className="wk__links">
+                    {w.links.map(([t, u]) => <a key={u} href={u} target="_blank" rel="noopener noreferrer">{t} <span aria-hidden="true">↗</span></a>)}
+                    <a className="wk__more" href={`/work/${w.slug}`}>Write-up <span aria-hidden="true">→</span></a>
+                  </div>
                 </div>
               </article>
             ))}
