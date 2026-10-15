@@ -14,6 +14,7 @@ const WORK = [
     slug: 'saabi', n: '02', name: 'SAABI', kind: 'AI breed identification',
     blurb: 'Upload a photo of cattle or a buffalo and it names the breed. Photos that are neither get flagged instead of guessed at.',
     tags: ['Python', 'Computer vision', 'MobileNetV2'],
+    award: 'ICAR Shitij Innovation Program — Winner',
     links: [['Live demo', 'https://saabi-qhel.onrender.com/'], ['GitHub', 'https://github.com/Viratgupta13/saabi-cattle-breed-classifier']],
   },
   {
@@ -22,10 +23,26 @@ const WORK = [
     tags: ['React Native', 'Expo'],
     links: [['Live demo', 'https://viratgupta13.github.io/herbal-garden/'], ['GitHub', 'https://github.com/Viratgupta13/herbal-garden']],
   },
+  {
+    slug: 'recallos', n: '04', name: 'RecallOS', kind: 'Spaced-repetition app',
+    blurb: "Ranks what you're about to forget and quizzes you on it. The frontend is built; the backend is what I'm working on next.",
+    tags: ['React 19', 'TypeScript', 'Vite', 'Tailwind 4'],
+    status: 'In progress',
+    links: [],
+  },
 ];
 
 
 const MEDIA = {
+  'recallos': (
+    <a className="wk__media wk__media--shot" href="/work/recallos" aria-label="Read the RecallOS write-up">
+      <img className="wk__cover" src="/assets/recallos-02-dashboard.jpg" alt="RecallOS dashboard, running on mock data" loading="lazy" />
+      <span className="wk__inset wk__inset--l">
+        <img src="/assets/recallos-09-forgetting-radar.jpg" alt="RecallOS forgetting radar, running on mock data" loading="lazy" />
+        <i>Forgetting radar</i>
+      </span>
+    </a>
+  ),
   'ledgerly': (
               <a className="wk__media wk__media--yellow" href="/work/ledgerly" aria-label="Read the Ledgerly write-up">
                   <span className="wk__shots wk__shots--row">
@@ -202,7 +219,7 @@ export default function Home() {
       <section className="work" id="work">
         <div className="wrap">
           <div className="work__head reveal">
-            <p className="eyebrow about__label">02 / Selected work</p>
+            <p className="eyebrow about__label">Selected work / 04</p>
             <h2 className="work__title">Things I&apos;ve made. Things I&apos;ve <em>broken.</em></h2>
             <p className="work__sub">A collection of ideas that escaped my notes app and became actual products.</p>
           </div>
@@ -214,6 +231,8 @@ export default function Home() {
                 <div className="wk__body">
                   <p className="wk__kind"><span>{w.n}</span> {w.kind}</p>
                   <h3 className="wk__name"><a href={`/work/${w.slug}`}>{w.name}<span className="wk__arrow" aria-hidden="true">↗</span></a></h3>
+                  {w.award && <p className="wk__award"><span aria-hidden="true">🏆</span> {w.award}</p>}
+                  {w.status && <p className="wk__status">{w.status}</p>}
                   <p className="wk__blurb">{w.blurb}</p>
                   <ul className="wk__tags" aria-label="Built with">{w.tags.map((t) => <li key={t}>{t}</li>)}</ul>
                   <div className="wk__links">
