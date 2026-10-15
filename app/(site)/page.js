@@ -5,26 +5,26 @@ import { site, skills, jobs, creds } from '@/lib/data';
 /* Selected work: real screenshots / recordings from /public/assets only. One place to rename a project. */
 const WORK = [
   {
-    slug: 'ledgerly', n: '01', name: 'Ledgerly', kind: 'Personal finance app',
+    slug: 'ledgerly', layout: 'phones', imgs: ['/assets/work-ledgerly-1.jpg', '/assets/work-ledgerly-2.jpg', '/assets/work-ledgerly-3.jpg'], n: '01', name: 'Ledgerly', kind: 'Personal finance app',
     blurb: "Turns your bank and UPI texts into a spending log you only have to review once. For people whose budgeting plan used to be 'vibes'.",
     tags: ['React Native', 'Expo', 'TypeScript', 'Supabase'],
     links: [['Live site', 'https://ledgerly-virat12.vercel.app/'], ['GitHub', 'https://github.com/Viratgupta13/ledgerly']],
   },
   {
-    slug: 'saabi', n: '02', name: 'SAABI', kind: 'AI breed identification',
+    slug: 'saabi', layout: 'wide', imgs: ['/assets/work-saabi-1.jpg', '/assets/work-saabi-2.jpg', '/assets/work-saabi-3.jpg'], n: '02', name: 'SAABI', kind: 'AI breed identification',
     blurb: 'Upload a photo of cattle or a buffalo and it names the breed. Photos that are neither get flagged instead of guessed at.',
     tags: ['Python', 'Computer vision', 'MobileNetV2'],
     award: 'ICAR Shitij Innovation Program — Winner',
     links: [['Live demo', 'https://saabi-qhel.onrender.com/'], ['GitHub', 'https://github.com/Viratgupta13/saabi-cattle-breed-classifier']],
   },
   {
-    slug: 'herbal-garden', n: '03', name: 'Herbify', kind: 'Virtual herbal garden',
+    slug: 'herbal-garden', layout: 'phones', imgs: ['/assets/work-herbify-1.jpg', '/assets/work-herbify-2.jpg', '/assets/work-herbify-3.jpg'], n: '03', name: 'Herbify', kind: 'Virtual herbal garden',
     blurb: 'Browse Ayurvedic herbs, keep a garden of the ones you grow, then quiz yourself. A garden where nothing dies of neglect.',
     tags: ['React Native', 'Expo'],
     links: [['Live demo', 'https://viratgupta13.github.io/herbal-garden/'], ['GitHub', 'https://github.com/Viratgupta13/herbal-garden']],
   },
   {
-    slug: 'recallos', n: '04', name: 'RecallOS', kind: 'Spaced-repetition app',
+    slug: 'recallos', layout: 'wide', imgs: ['/assets/work-recallos-1.jpg', '/assets/work-recallos-2.jpg', '/assets/work-recallos-3.jpg'], n: '04', name: 'RecallOS', kind: 'Spaced-repetition app',
     blurb: "Ranks what you're about to forget and quizzes you on it. The frontend is built; the backend is what I'm working on next.",
     tags: ['React 19', 'TypeScript', 'Vite', 'Tailwind 4'],
     status: 'In progress',
@@ -32,45 +32,6 @@ const WORK = [
   },
 ];
 
-
-const MEDIA = {
-  'recallos': (
-    <a className="wk__media wk__media--shot" href="/work/recallos" aria-label="Read the RecallOS write-up">
-      <img className="wk__cover" src="/assets/recallos-02-dashboard.jpg" alt="RecallOS dashboard, running on mock data" loading="lazy" />
-      <span className="wk__inset wk__inset--l">
-        <img src="/assets/recallos-09-forgetting-radar.jpg" alt="RecallOS forgetting radar, running on mock data" loading="lazy" />
-        <i>Forgetting radar</i>
-      </span>
-    </a>
-  ),
-  'ledgerly': (
-              <a className="wk__media wk__media--yellow" href="/work/ledgerly" aria-label="Read the Ledgerly write-up">
-                  <span className="wk__shots wk__shots--row">
-                    <img className="ph ph--a" src="/assets/ledgerly-02-home.jpg" alt="Ledgerly home screen" loading="lazy" />
-                    <img className="ph ph--b" src="/assets/ledgerly-04-inbox-scanned.jpg" alt="Ledgerly inbox after an SMS scan" loading="lazy" />
-                    <img className="ph ph--c" src="/assets/ledgerly-06-review-confirm.jpg" alt="Ledgerly review and confirm screen" loading="lazy" />
-                  </span>
-                </a>
-  ),
-  'saabi': (
-              <a className="wk__media wk__media--video" href="/work/saabi" aria-label="Read the SAABI write-up">
-                  <video className="wk__video" src="/assets/saabi-demo.mp4" autoPlay muted loop playsInline preload="metadata" aria-label="SAABI demo: upload a photo, get a breed" />
-                  <span className="wk__inset">
-                    <img src="/assets/saabi-confusion.jpg" alt="SAABI confusion matrix on the held-out test set" loading="lazy" />
-                    <i>Confusion matrix</i>
-                  </span>
-                </a>
-  ),
-  'herbal-garden': (
-              <a className="wk__media wk__media--tint" href="/work/herbal-garden" aria-label="Read the Herbify write-up">
-                  <span className="wk__shots wk__shots--fan">
-                    <img className="ph ph--l" src="/assets/herbify-1-welcome.jpg" alt="Herbify welcome screen" loading="lazy" />
-                    <img className="ph ph--m" src="/assets/herbify-2-home.jpg" alt="Herbify home screen" loading="lazy" />
-                    <img className="ph ph--r" src="/assets/herbify-4-quiz.jpg" alt="Herbify quiz" loading="lazy" />
-                  </span>
-                </a>
-  ),
-};
 
 const Arrow = () => (
   <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 8h10M9 4l4 4-4 4" /></svg>
@@ -221,27 +182,39 @@ export default function Home() {
           <div className="work__head reveal">
             <p className="eyebrow about__label">Selected work / 04</p>
             <h2 className="work__title">Things I&apos;ve made. Things I&apos;ve <em>broken.</em></h2>
-            <p className="work__sub">A collection of ideas that escaped my notes app and became actual products.</p>
+            <p className="work__sub">A collection of work that escaped my notes app and became actual products.</p>
           </div>
 
-          <div className="wk-list">
-            {WORK.map((w) => (
-              <article className={`wk wk--${w.n.slice(1)} reveal`} key={w.slug}>
-                {MEDIA[w.slug]}
-                <div className="wk__body">
-                  <p className="wk__kind"><span>{w.n}</span> {w.kind}</p>
-                  <h3 className="wk__name"><a href={`/work/${w.slug}`}>{w.name}<span className="wk__arrow" aria-hidden="true">↗</span></a></h3>
-                  {w.award && <p className="wk__award"><span aria-hidden="true">🏆</span> {w.award}</p>}
-                  {w.status && <p className="wk__status">{w.status}</p>}
-                  <p className="wk__blurb">{w.blurb}</p>
-                  <ul className="wk__tags" aria-label="Built with">{w.tags.map((t) => <li key={t}>{t}</li>)}</ul>
-                  <div className="wk__links">
-                    {w.links.map(([t, u]) => <a key={u} href={u} target="_blank" rel="noopener noreferrer">{t} <span aria-hidden="true">↗</span></a>)}
-                    <a className="wk__more" href={`/work/${w.slug}`}>Write-up <span aria-hidden="true">→</span></a>
+          <div className="wr-wrap">
+            <div className="wr-list">
+              {WORK.map((w, i) => (
+                <article className="wr reveal" key={w.slug} data-wr={w.slug} data-active={i === 0 ? '1' : undefined}>
+                  <span className="wr__n">{w.n}</span>
+                  <div className="wr__main">
+                    <img className="wr__thumb" src={w.imgs[0]} alt="" loading="lazy" />
+                    <h3 className="wr__name"><a href={`/work/${w.slug}`}>{w.name}<span className="wr__arrow" aria-hidden="true">↗</span></a></h3>
+                    <div className="wr__meta">
+                      {w.award && <span className="wr__award"><span aria-hidden="true">🏆</span> {w.award}</span>}
+                      {w.status && <span className="wr__status">{w.status}</span>}
+                      <span className="wr__kind">{w.kind}</span>
+                      {w.tags.map((t) => <span className="wr__tag" key={t}>{t}</span>)}
+                    </div>
+                    <p className="wr__blurb">{w.blurb}</p>
+                    <div className="wr__links">
+                      {w.links.map(([t, u]) => <a key={u} href={u} target="_blank" rel="noopener noreferrer">{t} <span aria-hidden="true">↗</span></a>)}
+                      <a className="wr__more" href={`/work/${w.slug}`}>Write-up <span aria-hidden="true">→</span></a>
+                    </div>
                   </div>
+                </article>
+              ))}
+            </div>
+            <div className="wr-panel" aria-hidden="true">
+              {WORK.map((w, i) => (
+                <div className={`wp wp--${w.layout}${i === 0 ? ' on' : ''}`} data-wp={w.slug} key={w.slug}>
+                  {w.imgs.map((src) => <img key={src} src={src} alt="" loading="lazy" />)}
                 </div>
-              </article>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </section>

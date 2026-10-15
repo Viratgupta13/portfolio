@@ -189,6 +189,19 @@ export default function Motion() {
     observers.push(io2);
     $$('.skillgroup').forEach((el) => io2.observe(el));
 
+    /* selected work: the row you point at (or focus) decides which mosaic fills the panel */
+    const rowsW = $$('[data-wr]'), panelsW = $$('.wp');
+    if (rowsW.length) {
+      const setActive = (slug) => {
+        rowsW.forEach((r) => { if (r.dataset.wr === slug) r.dataset.active = '1'; else delete r.dataset.active; });
+        panelsW.forEach((p) => p.classList.toggle('on', p.dataset.wp === slug));
+      };
+      rowsW.forEach((r) => {
+        r.addEventListener('pointerenter', () => setActive(r.dataset.wr), sig);
+        r.addEventListener('focusin', () => setActive(r.dataset.wr), sig);
+      });
+    }
+
     /* experience: scroll-spy + mobile accordion */
     const items = $$('[data-xp-item]'), jobs = $$('[data-job]'), list = $('.xp__list');
     let lastBest = -1;
