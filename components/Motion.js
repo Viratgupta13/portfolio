@@ -104,6 +104,27 @@ export default function Motion() {
       else (document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve()).then(() => alive && requestAnimationFrame(play));
     }
 
+    /* morph: the circle follows the cursor (eased) and opens on enter, closes on leave */
+    $$('[data-morph]').forEach((el) => {
+      let tx = 0, ty = 0, x = 0, y = 0, running = false;
+      const tick = () => {
+        x += (tx - x) * 0.22; y += (ty - y) * 0.22;
+        el.style.setProperty('--mx', x.toFixed(1) + 'px'); el.style.setProperty('--my', y.toFixed(1) + 'px');
+        if (alive && (el.dataset.on === '1' || Math.abs(tx - x) > 0.5 || Math.abs(ty - y) > 0.5)) requestAnimationFrame(tick); else running = false;
+      };
+      const kick = () => { if (!running) { running = true; requestAnimationFrame(tick); } };
+      el.addEventListener('pointerenter', (e) => {
+        if (e.pointerType === 'touch') return;
+        const r = el.getBoundingClientRect(); tx = x = e.clientX - r.left; ty = y = e.clientY - r.top;
+        el.dataset.on = '1'; kick();
+      }, sig);
+      el.addEventListener('pointermove', (e) => {
+        if (e.pointerType === 'touch') return;
+        const r = el.getBoundingClientRect(); tx = e.clientX - r.left; ty = e.clientY - r.top; kick();
+      }, sig);
+      el.addEventListener('pointerleave', () => { el.dataset.on = '0'; }, sig);
+    });
+
     /* hero grid parallax + accent spotlight (mouse), plus scroll-linked bits */
     const lns = $('.hero__lines'), glow = $('.hero__glow'), light = $('.hero__light');
     let mx = 0, my = 0, cx = 0, cy = 0;

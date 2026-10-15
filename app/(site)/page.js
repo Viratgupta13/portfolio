@@ -1,4 +1,5 @@
 import Words from '@/components/Words';
+import HeroScatter from '@/components/HeroScatter';
 import { site, skills, jobs, cases, creds } from '@/lib/data';
 
 const Arrow = () => (
@@ -20,12 +21,19 @@ export default function Home() {
             <span className="name__line"><span>Virat</span></span>
             <span className="name__line"><span>Gupta</span></span>
           </h1>
-          <p className="headline">
-            <Words text="Full-stack developer building" />{' '}
-            <b><Words text="web and mobile apps" /></b>{' '}
-            <Words text="with" />{' '}
-            <b><Words text="machine learning" /></b>{' '}
-            <Words text="inside." />
+          <p className="headline morph" data-morph="true">
+            <span className="morph__base">
+              <Words text="Full-stack developer building" />{' '}
+              <b><Words text="web, mobile & AI-powered products." /></b>
+            </span>
+            <span className="morph__alt" aria-hidden="true">
+              <span className="f-serif">I</span>{' '}
+              <span className="f-bold">build things.</span>{' '}
+              <span className="f-mono">Some of them</span>{' '}
+              <span className="f-script">are</span>{' '}
+              <span className="f-serif f-it">even</span>{' '}
+              <span className="f-outline">intentional.</span>
+            </span>
           </p>
           <div className="hero__actions">
             <a className="cta" href="#work">
@@ -39,6 +47,7 @@ export default function Home() {
             </a>
           </div>
         </div>
+        <HeroScatter />
       </section>
 
       <section className="about" id="about">
