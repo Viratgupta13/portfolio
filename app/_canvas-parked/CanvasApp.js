@@ -1,6 +1,6 @@
 'use client';
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react';
-import '../app/canvas/canvas.css';
+import './canvas.css';
 import { site, jobs, cases, skills } from '@/lib/data';
 
 /* ---------- icons ---------- */

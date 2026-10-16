@@ -1,5 +1,6 @@
 import Words from '@/components/Words';
 import HeroScatter from '@/components/HeroScatter';
+import AvailabilityMachine from '@/components/AvailabilityMachine';
 import { site, skills, jobs, creds } from '@/lib/data';
 
 /* Selected work: real screenshots / recordings from /public/assets only. One place to rename a project. */
@@ -72,10 +73,6 @@ export default function Home() {
               <span className="cta__text">See the work</span>
               <span className="cta__icon" aria-hidden="true"><Arrow /></span>
             </a>
-            <a className="ghost" href="#desk">
-              <span className="ghost__dot" aria-hidden="true" />
-              There’s a far more fun version of this<span className="ghost__badge">highly recommended</span>
-            </a>
           </div>
         </div>
         <HeroScatter />
@@ -101,6 +98,7 @@ export default function Home() {
               <p className="about__meta reveal">Full-stack developer · Serial idea collector</p>
               <p className="about__lede reveal">{"I'm Virat. I build web and mobile products, obsess over tiny details, and occasionally turn a straightforward task into an unnecessarily elaborate side quest."}</p>
               <p className="about__body reveal">{"I like the entire process of making things — from the first ‘what if?’ to the part where everything finally works. Somewhere between writing code, fixing bugs, and questioning my own decisions, I'm figuring out what makes software genuinely useful."}</p>
+              <p className="about__open reveal"><i aria-hidden="true" /><span><b>Open to</b> full-time roles, internships, and interesting problems.</span></p>
             </div>
           </div>
 
@@ -233,26 +231,17 @@ export default function Home() {
       <section className="closer" id="contact" data-closer="true">
         <div className="closer__field" data-closer-field="true" aria-hidden="true" />
         <div className="wrap closer__inner">
-          <h2><span>Let's build</span><span>something.</span></h2>
-          <p>Open to internships and interesting problems. The fastest way to reach me is email, I answer all of them.</p>
-          <a className="closer__mail" href={`mailto:${site.email}`}>{site.email}</a>
-          <div className="closer__links">
-            <a href={site.github} target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
-            <a href={site.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>
-            <a href={site.resume} download>Résumé <span aria-hidden="true">↓</span></a>
-          </div>
-          <div className="door" id="desk">
-            <div className="door__copy">
-              <p className="door__title">Oh, and this page is the boring half.</p>
-              <p>The main portfolio is finished. This one is a little less serious. There's a desk you can pan around, windows to drag, a notes wall and a few things hidden away.</p>
-              <p>Some of it keeps score. Try not to take that personally.</p>
-              <p>There are things here that aren't meant to be obvious. If you find one, you find one.</p>
-            </div>
-            <div className="door__go">
-              <a href="/canvas">Open the canvas <span aria-hidden="true">→</span></a>
-              <p className="door__note">Only Desktops supported. This place has a lot going on.</p>
+          <div className="closer__copy">
+            <h2><span>Let's build</span><span>something.</span></h2>
+            <p>Open to full-time roles, internships, and interesting problems. The fastest way to reach me is email, I answer all of them.</p>
+            <a className="closer__mail" href={`mailto:${site.email}`}>{site.email}</a>
+            <div className="closer__links">
+              <a href={site.github} target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+              <a href={site.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>
+              <a href={site.resume} download>Résumé <span aria-hidden="true">↓</span></a>
             </div>
           </div>
+          <AvailabilityMachine />
         </div>
       </section>
     </main>

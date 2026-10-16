@@ -21,7 +21,6 @@ export default function SiteBar() {
       <div id="site-drawer" className="drawer" inert={true}>
         <nav aria-label="Sections">
           {links.map(([t, id]) => <a key={id} href={`/#${id}`}>{t}</a>)}
-          <a className="drawer__desk" href="/canvas">The desk<span className="drawer__badge">highly recommended</span></a>
         </nav>
       </div>
     </>

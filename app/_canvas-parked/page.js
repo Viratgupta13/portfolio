@@ -1,4 +1,4 @@
-import CanvasApp from '@/components/CanvasApp';
+import CanvasApp from './CanvasApp';
 
 export const metadata = {
   title: 'Virat Gupta — the canvas',

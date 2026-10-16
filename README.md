@@ -1,12 +1,11 @@
 # Virat Gupta: portfolio
 
-My portfolio: a fast main page plus a pannable `/canvas` desk of draggable cards, built with Next.js.
+My portfolio, built with Next.js.
 
 **Live:** _add the Vercel link here after the first deploy_
 
 ## What's in it
 - **Main page:** hero, about, toolbox, experience, four selected projects with write-ups at `/work/<slug>`, education and awards, contact.
-- **Canvas (`/canvas`):** an infinite desk. Drag the background to pan, drag cards by their title bar, open them from the dock, `⌘/Ctrl + K` for a quick menu, `F` to fit everything. Desktop only.
 - Light and dark theme, reduced-motion support, mobile layout for the main page.
 
 ## Tech stack

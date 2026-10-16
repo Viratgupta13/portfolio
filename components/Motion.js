@@ -59,8 +59,7 @@ export default function Motion() {
         const t = $(u.hash);
         if (!t) return;
         e.preventDefault(); closeDrawer(); history.replaceState(null, '', u.hash);
-        if (u.hash === '#desk') { goTo(t, -(64 + 32)); later(() => { t.dataset.flash = '1'; later(() => delete t.dataset.flash, 2100); }, 500); }
-        else goTo(t);
+        goTo(t);
       }, sig);
     });
 
