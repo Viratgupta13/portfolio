@@ -2,7 +2,7 @@
 
 My portfolio, built with Next.js.
 
-**Live:** _add the Vercel link here after the first deploy_
+**Live:** https://viratgupta-portfolio.vercel.app
 
 ## What's in it
 - **Main page:** hero, about, toolbox, experience, five selected projects with write-ups at `/work/<slug>`, education and awards, contact.
