@@ -6,10 +6,10 @@ import { site, skills, jobs, creds } from '@/lib/data';
 /* Selected work: real screenshots / recordings from /public/assets only. One place to rename a project. */
 const WORK = [
   {
-    slug: 'ledgerly', layout: 'phones', imgs: ['/assets/work-ledgerly-1.jpg', '/assets/work-ledgerly-2.jpg', '/assets/work-ledgerly-3.jpg'], n: '01', name: 'Ledgerly', kind: 'Personal finance app',
-    blurb: "Turns your bank and UPI texts into a spending log you only have to review once. For people whose budgeting plan used to be 'vibes'.",
-    tags: ['React Native', 'Expo', 'TypeScript', 'Supabase'],
-    links: [['Live site', 'https://ledgerly-virat12.vercel.app/'], ['GitHub', 'https://github.com/Viratgupta13/ledgerly']],
+    slug: 'sentinel', layout: 'wide', imgs: ['/assets/work-sentinel-1.jpg', '/assets/work-sentinel-2.jpg', '/assets/work-sentinel-3.jpg'], n: '01', name: 'Sentinel', kind: 'AI code reviewer',
+    blurb: "Reads every pull request before your teammates do and points at the risky line, with the reason. It also remembers why the team removed things, so they don't quietly come back.",
+    tags: ['Python', 'LLMs', 'GitHub App', 'Postgres'],
+    links: [['Live site', 'https://sentinel-us50.onrender.com/'], ['GitHub', 'https://github.com/Viratgupta13/sentinel']],
   },
   {
     slug: 'saabi', layout: 'wide', imgs: ['/assets/work-saabi-1.jpg', '/assets/work-saabi-2.jpg', '/assets/work-saabi-3.jpg'], n: '02', name: 'SAABI', kind: 'AI breed identification',
@@ -19,13 +19,19 @@ const WORK = [
     links: [['Live demo', 'https://saabi-qhel.onrender.com/'], ['GitHub', 'https://github.com/Viratgupta13/saabi-cattle-breed-classifier']],
   },
   {
-    slug: 'herbal-garden', layout: 'phones', imgs: ['/assets/work-herbify-1.jpg', '/assets/work-herbify-2.jpg', '/assets/work-herbify-3.jpg'], n: '03', name: 'Herbify', kind: 'Virtual herbal garden',
+    slug: 'ledgerly', layout: 'phones', imgs: ['/assets/work-ledgerly-1.jpg', '/assets/work-ledgerly-2.jpg', '/assets/work-ledgerly-3.jpg'], n: '03', name: 'Ledgerly', kind: 'Personal finance app',
+    blurb: "Turns your bank and UPI texts into a spending log you only have to review once. For people whose budgeting plan used to be 'vibes'.",
+    tags: ['React Native', 'Expo', 'TypeScript', 'Supabase'],
+    links: [['Live site', 'https://ledgerly-virat12.vercel.app/'], ['GitHub', 'https://github.com/Viratgupta13/ledgerly']],
+  },
+  {
+    slug: 'herbal-garden', layout: 'phones', imgs: ['/assets/work-herbify-1.jpg', '/assets/work-herbify-2.jpg', '/assets/work-herbify-3.jpg'], n: '04', name: 'Herbify', kind: 'Virtual herbal garden',
     blurb: 'Browse Ayurvedic herbs, keep a garden of the ones you grow, then quiz yourself. A garden where nothing dies of neglect.',
     tags: ['React Native', 'Expo'],
     links: [['Live demo', 'https://viratgupta13.github.io/herbal-garden/'], ['GitHub', 'https://github.com/Viratgupta13/herbal-garden']],
   },
   {
-    slug: 'recallos', layout: 'wide', imgs: ['/assets/work-recallos-1.jpg', '/assets/work-recallos-2.jpg', '/assets/work-recallos-3.jpg'], n: '04', name: 'RecallOS', kind: 'Spaced-repetition app',
+    slug: 'recallos', layout: 'wide', imgs: ['/assets/work-recallos-1.jpg', '/assets/work-recallos-2.jpg', '/assets/work-recallos-3.jpg'], n: '05', name: 'RecallOS', kind: 'Spaced-repetition app',
     blurb: "Ranks what you're about to forget and quizzes you on it. The frontend is built; the backend is what I'm working on next.",
     tags: ['React 19', 'TypeScript', 'Vite', 'Tailwind 4'],
     status: 'In progress',
@@ -178,7 +184,7 @@ export default function Home() {
       <section className="work" id="work">
         <div className="wrap">
           <div className="work__head reveal">
-            <p className="eyebrow about__label">Selected work / 04</p>
+            <p className="eyebrow about__label">Selected work / 05</p>
             <h2 className="work__title">Things I&apos;ve made. Things I&apos;ve <em>broken.</em></h2>
             <p className="work__sub">A collection of work that escaped my notes app and became actual products.</p>
           </div>

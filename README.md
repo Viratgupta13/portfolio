@@ -5,7 +5,7 @@ My portfolio, built with Next.js.
 **Live:** _add the Vercel link here after the first deploy_
 
 ## What's in it
-- **Main page:** hero, about, toolbox, experience, four selected projects with write-ups at `/work/<slug>`, education and awards, contact.
+- **Main page:** hero, about, toolbox, experience, five selected projects with write-ups at `/work/<slug>`, education and awards, contact.
 - Light and dark theme, reduced-motion support, mobile layout for the main page.
 
 ## Tech stack
